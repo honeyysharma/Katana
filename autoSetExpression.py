@@ -32,8 +32,8 @@ def createMTLAssignPerPart():
     for i,part in enumerate(partList):
         mtlAssignChild = gsMTLAssign.buildChildNode()
         mtlAssignChild.setName("MTL_Assign_"+part,0)
-        mtl = mtlNodes[i].getParameter('name').getValue(0)
-        mtlAssignChild.getParameter('args.materialAssign.value').setExpression("scenegraphLocationFromNode(getNode(mtl.getParameter('name').getValue(0)))")
+        mtl = mtlNodes[i]
+        mtlAssignChild.getParameter('args.materialAssign.value').setExpression("scenegraphLocationFromNode(getNode('"+mtl.getParameter('name').getValue(0)+"'))")
 
 
 createMTLAssignPerPart()
